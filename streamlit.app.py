@@ -19,7 +19,6 @@ streamlit.text('Avacado Toast')
 streamlit.title("Build Your Own Fruit Smoothie")
 
 
-
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 # Let's put a pick list here so they can pick the fruit they want to include 
 my_fruit_list = my_fruit_list.set_index('Fruit')
@@ -31,10 +30,9 @@ streamlit.dataframe(fruits_to_show)
 
 
 streamlit.header('Fruityvice Fruit Advice!')
-try :
+try:
 fruit_choice = streamlit.text_input('What fruit would you like information about?')
 if not fruit_choice:
-
 streamlit.error("Please select a fruit to get information.")
 else:
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
